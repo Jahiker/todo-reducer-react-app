@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { TodoItem } from "./TodoItem";
 
-export const TodoList = memo(({ todos, onDeleteTodo }) => {
+export const TodoList = memo(({ todos, onDeleteTodo, onToggleTodo }) => {
   return (
     <div className="col-7">
       <ul className="list-group">
@@ -11,7 +11,12 @@ export const TodoList = memo(({ todos, onDeleteTodo }) => {
           </li>
         )}
         {todos?.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} onDeleteTodo={onDeleteTodo} />
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            onDeleteTodo={onDeleteTodo}
+            onToggleTodo={onToggleTodo}
+          />
         ))}
       </ul>
     </div>
